@@ -1,6 +1,13 @@
 <?php
 
+include_once 'functions.php';
 
-// create GIT branches
-// call DB 'luke-collection'
+$db = fetchDb();
+$result = dbQuery($db);
+
+echo '<pre>';
+var_dump($result);
+echo '<pre>';
+
+?>
 

@@ -15,7 +15,6 @@ $output = readResults($results);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <header>
@@ -23,7 +22,7 @@ $output = readResults($results);
     </header>
     <main>
         <?php
-        echo $output;
+            echo $output;
         ?>
     </main>
 </body>

@@ -30,7 +30,6 @@ function readResults(array $results): string {
             $result = 'Entered value out of range, please check database.';
         }
              $resultsToReturn .= $result;
-
     }
         return $resultsToReturn;
 }

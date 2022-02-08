@@ -35,12 +35,13 @@ function readResults(array $results): string {
         && strlen($result['album_name']) < 50
         && strlen($result['artist_name']) < 50)
         {
-            $result = "<div>
+            $result = "<div class='albumBox'>
+            <img src='$result[cover]' alt='album cover' width='250px' height='250px'>
+            
             <h2>$result[album_name]</h2>
             <h3>$result[artist_name]</h3>
             <p>Year of Release: $result[year]</p>
             <p>Rating: $result[rating]</p>
-            <img src='$result[cover]' alt='album cover' width='250px' height='250px'>
             </div>";
         } else {
             return $result = 'Entered value out of range, please check database.';

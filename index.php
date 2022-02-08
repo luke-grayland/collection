@@ -22,23 +22,10 @@ $output = readResults($results);
         <h1>Luke's Favourite Albums</h1>
     </header>
     <main>
-<!--        <div class="albumBox">-->
-<!--            <img src='https://m.media-amazon.com/images/I/81EP2fxHLRL._AC_SX425_.jpg' alt='album cover' width='250px' height='250px'>-->
-<!--            <h2>Plastic Beach</h2>-->
-<!--            <h3>Gorillaz</h3>-->
-<!--            <p>Year of Release: 2010</p>-->
-<!--            <p>Rating: 10</p>-->
-<!--        </div>-->
-
         <?php
         echo $output;
         ?>
-
     </main>
 </body>
-
-<footer>
-
-</footer>
 </html>
 

@@ -10,11 +10,11 @@ class functionsTest extends TestCase
     public function testSuccessReadResults() {
 
         $testArray = [
-            ['album_name' => 'testAlbum'],
-            ['artist_name' => 'testArtist'],
-            ['year' => '1997'],
-            ['rating' => '9'],
-            ['cover' => 'test.com']
+            ['album_name' => 'testAlbum',
+            'artist_name' => 'testArtist',
+            'year' => '1997',
+            'rating' => '9',
+            'cover' => 'test.com']
         ];
 
         $expected = "<div>
@@ -24,6 +24,22 @@ class functionsTest extends TestCase
             <p>Rating: 9</p>
             <img src='test.com' alt='album cover' width='250px' height='250px'>
             </div>";
+
+        $case = readResults($testArray);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailReadResults() {
+
+        $testArray = [
+            ['album_name' => 'testAlbum',
+            'artist_name' => 'testArtist',
+            'year' => '1997',
+            'rating' => '12',
+            'cover' => 'test.com']
+        ];
+
+        $expected = "Entered value out of range, please check database.";
 
         $case = readResults($testArray);
         $this->assertEquals($expected, $case);

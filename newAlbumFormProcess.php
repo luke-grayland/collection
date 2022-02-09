@@ -11,7 +11,7 @@ if (checkAlbumDataExists($newAlbumData)) {
     $newAlbumData['yearOfRelease'] = filter_var($newAlbumData['artistName'], FILTER_SANITIZE_NUMBER_INT);
     $newAlbumData['albumArtworkURL'] = filter_var($newAlbumData['artistName'], FILTER_SANITIZE_URL);
     $newAlbumData['rating'] = filter_var($newAlbumData['rating'], FILTER_SANITIZE_NUMBER_INT);
-    
+
 
     if (
         //Validate (Some of this is truthy, some isn't - still trying to figure out why)

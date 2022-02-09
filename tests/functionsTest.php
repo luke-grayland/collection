@@ -5,28 +5,28 @@ require_once '../functions.php';
 
 class functionsTest extends TestCase
 {
-    public function testSuccessReadResults()
+    public function testSuccessCreateAlbumMarkup()
     {
         $testArray = [
             ['album_name' => 'testAlbum',
                 'artist_name' => 'testArtist',
                 'year' => '1997',
-                'rating' => '9',
+                'rating' => '3',
                 'cover' => 'test.com']
         ];
 
-        $expected = "<div>
-            <h2>testAlbum</h2>
-            <h3>testArtist</h3>
-            <p>Year of Release: 1997</p>
-            <p>Rating: 9</p>
-            <img src='test.com' alt='album cover' width='250px' height='250px'>
-            </div>";
-        $case = readResults($testArray);
+        $expected = "<div class='albumBox'>
+                <img src='test.com' alt='album cover' class='albumArt'>
+                <h2>testAlbum</h2>
+                <h3>testArtist</h3>
+                <p>Year of Release: 1997</p>
+                <p><img src='star.png' alt='star' class='star'><img src='star.png' alt='star' class='star'><img src='star.png' alt='star' class='star'></p>
+                </div>";
+        $case = createAlbumMarkup($testArray);
         $this->assertEquals($expected, $case);
     }
 
-    public function testFailReadResults()
+    public function testFailCreateAlbumMarkup()
     {
         $testArray = [
             ['album_name' => 'testAlbum',
@@ -36,16 +36,16 @@ class functionsTest extends TestCase
                 'cover' => 'test.com']
         ];
 
-        $expected = "Entered value out of range, please check database.";
-        $case = readResults($testArray);
+        $expected = '';
+        $case = createAlbumMarkup($testArray);
         $this->assertEquals($expected, $case);
     }
 
-    public function testMalformReadResults() {
+    public function testMalformCreateAlbumMarkup() {
         $testArray = 'string';
 
         $this->expectException(TypeError::class);
-        readResults($testArray);
+        createAlbumMarkup($testArray);
     }
 }
 

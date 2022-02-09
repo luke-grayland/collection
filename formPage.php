@@ -17,6 +17,7 @@
 <body>
 <header>
     <h1>Luke's Favourite Albums</h1>
+    <a href='index.php' class="addNewAlbumButton"><p>Home</p></a>
 </header>
 <main>
 

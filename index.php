@@ -21,6 +21,8 @@ $output = createAlbumMarkup($results);
 <body>
     <header>
         <h1>Luke's Favourite Albums</h1>
+        <a href='formPage.php' class="addNewAlbumButton"><p>Add new album</p></a>
+
     </header>
     <main>
         <?php

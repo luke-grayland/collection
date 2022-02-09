@@ -24,7 +24,7 @@ header {
     height: 100px;
     display: flex;
     justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
     z-index: 10;
 }
 
@@ -32,7 +32,7 @@ header h1 {
 
     font-size: 4rem;
     font-weight: 300;
-    margin: auto 0px auto 100px;
+    margin: auto 0 auto 100px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -61,7 +61,7 @@ main {
     margin: 20px 20px;
     padding: 20px;
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.6) 0px 15px 25px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0 15px 25px;
     transition: 0.2s;
     min-height: 500px;
     width: 300px;
@@ -99,7 +99,7 @@ main {
 }
 
 .albumBox:hover {
-    box-shadow: rgba(0, 0, 0, 0.9) 0px 15px 35px;
+    box-shadow: rgba(0, 0, 0, 0.9) 0 15px 35px;
     transition: 0.2s;
     transform: scale(1.02);
 }
@@ -142,7 +142,7 @@ main {
 .addNewAlbumButton {
     height: 70%;
     width: 20%;
-    margin: auto 100px auto 0px;
+    margin: auto 100px auto 0;
     border: black solid;
     border-radius: 15px;
     transition: 0.2s;
@@ -168,5 +168,4 @@ main {
     background-color: rgba(247, 236, 222, 1);
     transition: 0.2s;
     transform: scale(1.04);
-
 }

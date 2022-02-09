@@ -1,7 +1,5 @@
 <?php
 
-
-
 echo "
     Currently I'm just echoing this out to show you it's working... <br><br>
     

@@ -2,6 +2,8 @@
 
 /**
  * Connects to database
+ *
+ * @return PDO
  */
 function fetchDb(): PDO {
     $db = new PDO('mysql:host=db; dbname=luke-collection', 'root', 'password');

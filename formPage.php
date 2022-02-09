@@ -31,8 +31,8 @@
         <label for ="yearOfRelease">Year of Release:</label>
         <input type="text" id="yearOfRelease" name="yearOfRelease">
 
-        <label for ="albumArtURL">Artwork URL:</label>
-        <input type="text" id="albumArtURL" name="albumArtURL">
+        <label for ="albumArtworkURL">Artwork URL:</label>
+        <input type="text" id="albumArtworkURL" name="albumArtworkURL">
 
         <label for ="rating">Rating (1-10):</label>
         <select name="rating" id="rating">

@@ -14,6 +14,7 @@
 html {
     font-size: 62.5%;
     font-family: 'Quicksand', sans-serif;
+    background-color: var(--lightCream);
 }
 
 header {
@@ -109,4 +110,24 @@ main {
 
 .albumBox p {
     font-size: 1.5rem;
+}
+
+.newAlbumForm {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.newAlbumForm input, .newAlbumForm select {
+    height: 25px;
+}
+
+.newAlbumForm label {
+    font-size: 2rem;
+}
+
+.submitButton {
+    width: 50%;
+    margin: 0 auto;
 }

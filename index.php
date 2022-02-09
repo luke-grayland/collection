@@ -10,6 +10,7 @@ $output = createAlbumMarkup($results);
 <html lang="en">
 <head>
     <title>Luke's Favourite Albums</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta name="viewport" content="width=device-width">
     <link href="normalize.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -14,10 +14,10 @@ function fetchDb(): PDO {
 /**
  * Queries the database, asking for album name, artist name, year, rating, and cover.
  *
- * @param Takes database as parameter
- * @return Returns results from database query
+ * @param PDO Takes database as parameter
+ * @return Array Returns results from database query
  */
-function getAllAlbums($db) {
+function getAllAlbums(PDO $db): array{
     $query = $db->prepare("SELECT `album_name`, `artist_name`, `year`, `rating`, `cover` FROM `luke-albums`;");
     $query->execute();
     return $query->fetchAll();

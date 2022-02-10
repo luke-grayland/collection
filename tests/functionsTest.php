@@ -97,5 +97,30 @@ class functionsTest extends TestCase
         $case = validateNewAlbumData($testAlbum, $testArtist, $testYear, $testURL, $testRating);
         $this->assertEquals($expected, $case);
     }
+
+    public function testFailValidateNewAlbumData()
+    {
+        $testAlbum = 'kjsdbsdbhfhcsbhdfhbdsheiruhgfbehrdfhjbvdfhjsgkdjhdgshjvgdfjhgjdhkghjsdhjvasbdchbdszhvgksuyvbysudbvhjasbdvydvuysdvbydvbdsbacbhdsacvdyufvbersybvyurbhfyubehrsfuygbesuydrshgvuvhserybhvdxkbrhdversuybveruyhdsabdcybsuycgayuwegfcuyekgchsfajwegyugsyuergfsgeyufgawyegfyuwgeaufiygawuygefyuawg';
+        $testArtist = 'artist';
+        $testYear = '1996';
+        $testURL = 'test.com';
+        $testRating = '9';
+
+        $expected = false;
+        $case = validateNewAlbumData($testAlbum, $testArtist, $testYear, $testURL, $testRating);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testMalformValidateNewAlbumData()
+    {
+        $testAlbum = ['feet' => 'toes'];
+        $testArtist = 'artist';
+        $testYear = '1996';
+        $testURL = 'test.com';
+        $testRating = '9';
+
+        $this->expectException(TypeError::class);
+        validateNewAlbumData($testAlbum, $testArtist, $testYear, $testURL, $testRating);
+    }
 }
 

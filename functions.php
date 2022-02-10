@@ -79,8 +79,8 @@ function checkAlbumDataExists(array $newAlbumData): bool {
         return false;
     }
 }
-<<<<<<< Updated upstream
-=======
+
+
 
 /**
  * Takes validated and sanitised user form data, fetches the database, and runs a query to input the data
@@ -100,4 +100,4 @@ function insertNewAlbum(string $albumName, string $artistName, int $year, string
 }
 
 
->>>>>>> Stashed changes
+

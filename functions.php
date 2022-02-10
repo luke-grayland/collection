@@ -91,6 +91,8 @@ function checkAlbumDataExists(array $newAlbumData): bool {
  * @param PDO $db
  */
 function insertNewAlbum(string $albumName, string $artistName, int $year, string $url, int $rating, PDO $db): void {
-    $newAlbumQuery = $db->prepare("INSERT INTO `luke-albums` (`album_name`, `artist_name`, `year`, `rating`, `cover`) VALUES ('$albumName', '$artistName', '$year', '$rating', '$url');");
-    $newAlbumQuery->execute();
+    $newAlbumQuery = $db->prepare("INSERT INTO `luke-albums` (`album_name`, `artist_name`, `year`, `rating`, `cover`) VALUES (?, ?, ?, ?, ?);");
+
+    //Execute
+    $newAlbumQuery->execute([$albumName, $artistName, $year, $rating, $url]);
 }

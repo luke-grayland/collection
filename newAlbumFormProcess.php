@@ -8,7 +8,7 @@ if (checkAlbumDataExists($newAlbumData)) {
     //Sanitise
     $albumName = filter_var($newAlbumData['albumName'], FILTER_SANITIZE_STRING);
     $artistName = filter_var($newAlbumData['artistName'], FILTER_SANITIZE_STRING);
-    $yearOfRelease = filter_var($newAlbumData['yearOfRelease'], FILTER_SANITIZE_NUMBER_INT);
+    $yearOfRelease = filter_var(intval($newAlbumData['yearOfRelease']), FILTER_SANITIZE_NUMBER_INT);
     $albumArtworkURL = filter_var($newAlbumData['albumArtworkURL'], FILTER_SANITIZE_URL);
     $rating = filter_var($newAlbumData['rating'], FILTER_SANITIZE_NUMBER_INT);
 

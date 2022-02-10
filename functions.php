@@ -80,8 +80,6 @@ function checkAlbumDataExists(array $newAlbumData): bool {
     }
 }
 
-
-
 /**
  * Takes validated and sanitised user form data, fetches the database, and runs a query to input the data
  *
@@ -98,6 +96,3 @@ function insertNewAlbum(string $albumName, string $artistName, int $year, string
     //Execute
     $newAlbumQuery->execute([$albumName, $artistName, $year, $rating, $url]);
 }
-
-
-

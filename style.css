@@ -169,3 +169,9 @@ main {
     transition: 0.2s;
     transform: scale(1.04);
 }
+
+.goBackButton {
+    background-color: grey;
+    color: white;
+    font-size: 3rem;
+}

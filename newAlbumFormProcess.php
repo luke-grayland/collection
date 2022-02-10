@@ -23,14 +23,21 @@ if (checkAlbumDataExists($newAlbumData)) {
         $newAlbumData['rating'] > 0
     ) {
         //Add to DB
-        echo 'The next step is to now add this data to the database, for now I\m echoing it to show it works...' . '<br>';
+        $db = fetchDb();
+        insertNewAlbum(
+            $newAlbumData['albumName'],
+            $newAlbumData['artistName'],
+            $newAlbumData['yearOfRelease'],
+            $newAlbumData['albumArtworkURL'],
+            $newAlbumData['rating'],
+            $db
+        );
 
-        echo '<pre>';
-        var_dump($newAlbumData);
-        echo '<pre>';
+        //Send back to index page
+        header('Location: index.php');
 
     } else {
-        echo 'Some of your data was invalid, please try again.';
+        echo 'Some of your data was invalid, please try again.<br><div class="goBackButton"><a href="formPage.php">Click here to go back.</a></div>';
     }
 }
 

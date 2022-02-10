@@ -61,3 +61,21 @@ function createAlbumMarkup(array $results): string {
 }
 
 
+/**
+ * Checks if values have been entered into new album form
+ *
+ * @param array $newAlbumData
+ * @return bool True if all have been set, false if any of them haven't been set
+ */
+function checkAlbumDataExists(array $newAlbumData): bool {
+    if (isset($newAlbumData['albumName']) &&
+        isset($newAlbumData['artistName']) &&
+        isset($newAlbumData['yearOfRelease']) &&
+        isset($newAlbumData['albumArtworkURL']) &&
+        isset($newAlbumData['rating'])
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}

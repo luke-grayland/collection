@@ -12,15 +12,12 @@ if (checkAlbumDataExists($newAlbumData)) {
     $newAlbumData['albumArtworkURL'] = filter_var($newAlbumData['albumArtworkURL'], FILTER_SANITIZE_URL);
     $newAlbumData['rating'] = filter_var($newAlbumData['rating'], FILTER_SANITIZE_NUMBER_INT);
 
-    if (
-        //Validate
-        strlen($newAlbumData['albumName']) < 255 &&
-        strlen($newAlbumData['artistName']) < 255 &&
-        $newAlbumData['yearOfRelease'] > 1000 &&
-        $newAlbumData['yearOfRelease'] < 2022 &&
-        strlen($newAlbumData['albumArtworkURL']) < 255 &&
-        $newAlbumData['rating'] < 11 &&
-        $newAlbumData['rating'] > 0
+    if (validateNewAlbumData(
+        $newAlbumData['albumName'],
+        $newAlbumData['artistName'],
+        $newAlbumData['yearOfRelease'],
+        $newAlbumData['albumArtworkURL'],
+        $newAlbumData['rating'])
     ) {
         //Add to DB
         $db = fetchDb();
@@ -28,16 +25,12 @@ if (checkAlbumDataExists($newAlbumData)) {
             $newAlbumData['albumName'],
             $newAlbumData['artistName'],
             $newAlbumData['yearOfRelease'],
-            $newAlbumData['albumArtworkURL'],
+            $newAlbumData['albumgit ArtworkURL'],
             $newAlbumData['rating'],
             $db
         );
-
-        //Send back to index page
-        header('Location: index.php');
-
-    } else {
-        echo 'Some of your data was invalid, please try again.<br><div class="goBackButton"><a href="formPage.php">Click here to go back.</a></div>';
     }
 }
 
+//Send back to index page
+header('Location: index.php');

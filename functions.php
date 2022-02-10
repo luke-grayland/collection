@@ -15,6 +15,7 @@ function fetchDb(): PDO {
  * Queries the database, asking for album name, artist name, year, rating, and cover.
  *
  * @param PDO Takes database as parameter
+ *
  * @return Array Returns results from database query
  */
 function getAllAlbums(PDO $db): array{
@@ -27,6 +28,7 @@ function getAllAlbums(PDO $db): array{
  * Iterates through the results array, validates each value, returns HTML string if so, returns error message string if not.
  *
  * @param Takes results array from database query
+ *
  * @return Returns string containing HTML or error message
  */
 function createAlbumMarkup(array $results): string {
@@ -65,6 +67,7 @@ function createAlbumMarkup(array $results): string {
  * Checks if values have been entered into new album form
  *
  * @param array $newAlbumData
+ *
  * @return bool True if all have been set, false if any of them haven't been set
  */
 function checkAlbumDataExists(array $newAlbumData): bool {
@@ -95,4 +98,32 @@ function insertNewAlbum(string $albumName, string $artistName, int $year, string
 
     //Execute
     $newAlbumQuery->execute([$albumName, $artistName, $year, $rating, $url]);
+}
+
+
+/**
+ * Validates data passed in by user
+ *
+ * @param string $albumName
+ * @param string $artistName
+ * @param int $yearOfRelease
+ * @param string $albumArtworkURL
+ * @param int $rating
+ *
+ * @return bool
+ */
+function validateNewAlbumData(string $albumName, string $artistName, int $yearOfRelease, string $albumArtworkURL, int $rating): bool {
+    if (
+    strlen($albumName) < 255 &&
+    strlen($artistName) < 255 &&
+    $yearOfRelease > 1000 &&
+    $yearOfRelease < 2022 &&
+    strlen($albumArtworkURL) < 255 &&
+    $rating < 11 &&
+    $rating > 0
+    ) {
+        return true;
+    } else {
+        return false;
+    }
 }

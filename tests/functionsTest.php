@@ -84,5 +84,18 @@ class functionsTest extends TestCase
         $this->expectException(TypeError::class);
         checkAlbumDataExists($testArray);
     }
+
+    public function testSuccessValidateNewAlbumData()
+    {
+        $testAlbum = 'album';
+        $testArtist = 'artist';
+        $testYear = '1996';
+        $testURL = 'test.com';
+        $testRating = '9';
+
+        $expected = true;
+        $case = validateNewAlbumData($testAlbum, $testArtist, $testYear, $testURL, $testRating);
+        $this->assertEquals($expected, $case);
+    }
 }
 

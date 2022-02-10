@@ -47,5 +47,80 @@ class functionsTest extends TestCase
         $this->expectException(TypeError::class);
         createAlbumMarkup($testArray);
     }
+
+    public function testSuccessCheckAlbumDataExists()
+    {
+        $testArray = [
+            'albumName' => 'testAlbum',
+                'artistName' => 'testArtist',
+                'yearOfRelease' => '1997',
+                'albumArtworkURL' => 'test.com',
+                'rating' => '3'
+        ];
+
+        $expected = true;
+        $case = checkAlbumDataExists($testArray);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailCheckAlbumDataExists()
+    {
+        $testArray = [
+            'albumName' => null,
+                'artistName' => 'testArtist',
+                'yearOfRelease' => '1997',
+                'albumArtworkURL' => 'test.com',
+                'rating' => '3'
+        ];
+
+        $expected = false;
+        $case = checkAlbumDataExists($testArray);
+        $this->assertEquals($expected, $case);
+    }
+    public function testMalformCheckAlbumDataExists()
+    {
+        $testArray = 'I am a string';
+
+        $this->expectException(TypeError::class);
+        checkAlbumDataExists($testArray);
+    }
+
+    public function testSuccessValidateNewAlbumData()
+    {
+        $testAlbum = 'album';
+        $testArtist = 'artist';
+        $testYear = '1996';
+        $testURL = 'test.com';
+        $testRating = '9';
+
+        $expected = true;
+        $case = validateNewAlbumData($testAlbum, $testArtist, $testYear, $testURL, $testRating);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailValidateNewAlbumData()
+    {
+        $testAlbum = 'kjsdbsdbhfhcsbhdfhbdsheiruhgfbehrdfhjbvdfhjsgkdjhdgshjvgdfjhgjdhkghjsdhjvasbdchbdszhvgksuyvbysudbvhjasbdvydvuysdvbydvbdsbacbhdsacvdyufvbersybvyurbhfyubehrsfuygbesuydrshgvuvhserybhvdxkbrhdversuybveruyhdsabdcybsuycgayuwegfcuyekgchsfajwegyugsyuergfsgeyufgawyegfyuwgeaufiygawuygefyuawg';
+        $testArtist = 'artist';
+        $testYear = '1996';
+        $testURL = 'test.com';
+        $testRating = '9';
+
+        $expected = false;
+        $case = validateNewAlbumData($testAlbum, $testArtist, $testYear, $testURL, $testRating);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testMalformValidateNewAlbumData()
+    {
+        $testAlbum = ['feet' => 'toes'];
+        $testArtist = 'artist';
+        $testYear = '1996';
+        $testURL = 'test.com';
+        $testRating = '9';
+
+        $this->expectException(TypeError::class);
+        validateNewAlbumData($testAlbum, $testArtist, $testYear, $testURL, $testRating);
+    }
 }
 

@@ -10,6 +10,7 @@ $output = createAlbumMarkup($results);
 <html lang="en">
 <head>
     <title>Luke's Favourite Albums</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta name="viewport" content="width=device-width">
     <link href="normalize.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +21,8 @@ $output = createAlbumMarkup($results);
 <body>
     <header>
         <h1>Luke's Favourite Albums</h1>
+        <a href='formPage.php' class="addNewAlbumButton"><p>Add new album</p></a>
+
     </header>
     <main>
         <?php

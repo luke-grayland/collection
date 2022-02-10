@@ -79,3 +79,25 @@ function checkAlbumDataExists(array $newAlbumData): bool {
         return false;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+/**
+ * Takes validated and sanitised user form data, fetches the database, and runs a query to input the data
+ *
+ * @param string $albumName
+ * @param string $artistName
+ * @param int $year
+ * @param string $url
+ * @param int $rating
+ * @param PDO $db
+ */
+function insertNewAlbum(string $albumName, string $artistName, int $year, string $url, int $rating, PDO $db): void {
+    $newAlbumQuery = $db->prepare("INSERT INTO `luke-albums` (`album_name`, `artist_name`, `year`, `rating`, `cover`) VALUES (?, ?, ?, ?, ?);");
+
+    //Execute
+    $newAlbumQuery->execute([$albumName, $artistName, $year, $rating, $url]);
+}
+
+
+>>>>>>> Stashed changes

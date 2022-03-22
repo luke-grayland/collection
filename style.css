@@ -124,6 +124,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .newAlbumForm input, .newAlbumForm select {
@@ -174,4 +175,8 @@ main {
     background-color: grey;
     color: white;
     font-size: 3rem;
+}
+
+.noAnimation {
+
 }

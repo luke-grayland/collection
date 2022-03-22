@@ -20,7 +20,7 @@
     <a href='index.php' class="addNewAlbumButton"><p>Home</p></a>
 </header>
 <main>
-    <form class="albumBox newAlbumForm" method="post" action="newAlbumFormProcess.php">
+    <form class="albumBox newAlbumForm noAnimation" method="post" action="newAlbumFormProcess.php">
         <label for ="albumName">Album Name:</label>
         <input type="text" id="albumName" name="albumName">
 
@@ -46,6 +46,10 @@
             <option value="9">9</option>
             <option value="10">10</option>
         </select>
+
+        <label for="spotifyLink">Spotify Link:</label>
+        <input type="text" id="spotifyLink" name="spotifyLink">
+
         <input type="submit" value="Submit" class="submitButton">
     </form>
 </main>

@@ -19,7 +19,7 @@ function fetchDb(): PDO {
  * @return Array Returns results from database query
  */
 function getAllAlbums(PDO $db): array{
-    $query = $db->prepare("SELECT `album_name`, `artist_name`, `year`, `rating`, `cover` FROM `luke-albums`;");
+    $query = $db->prepare("SELECT `album_name`, `artist_name`, `year`, `rating`, `cover`, `spotify_link` FROM `luke-albums`;");
     $query->execute();
     return $query->fetchAll();
 }
@@ -48,7 +48,7 @@ function createAlbumMarkup(array $results): string {
             && strlen($result['artist_name']) < 50)
             {
                 $result = "<div class='albumBox'>
-                <img src='$result[cover]' alt='album cover' class='albumArt'>
+                <a href='$result[spotify_link]'><img src='$result[cover]' alt='album cover' class='albumArt'></a>
                 <h2>$result[album_name]</h2>
                 <h3>$result[artist_name]</h3>
                 <p>Year of Release: $result[year]</p>
@@ -93,11 +93,11 @@ function checkAlbumDataExists(array $newAlbumData): bool {
  * @param int $rating
  * @param PDO $db
  */
-function insertNewAlbum(string $albumName, string $artistName, int $year, string $url, int $rating, PDO $db): void {
-    $newAlbumQuery = $db->prepare("INSERT INTO `luke-albums` (`album_name`, `artist_name`, `year`, `rating`, `cover`) VALUES (?, ?, ?, ?, ?);");
+function insertNewAlbum(string $albumName, string $artistName, int $year, string $url, int $rating, string $spotifyLink, PDO $db): void {
+    $newAlbumQuery = $db->prepare("INSERT INTO `luke-albums` (`album_name`, `artist_name`, `year`, `rating`, `cover`, `spotify_link`) VALUES (?, ?, ?, ?, ?, ?);");
 
     //Execute
-    $newAlbumQuery->execute([$albumName, $artistName, $year, $rating, $url]);
+    $newAlbumQuery->execute([$albumName, $artistName, $year, $rating, $url, $spotifyLink]);
 }
 
 
@@ -112,7 +112,7 @@ function insertNewAlbum(string $albumName, string $artistName, int $year, string
  *
  * @return bool
  */
-function validateNewAlbumData(string $albumName, string $artistName, int $yearOfRelease, string $albumArtworkURL, int $rating): bool {
+function validateNewAlbumData(string $albumName, string $artistName, int $yearOfRelease, string $albumArtworkURL, int $rating, string $spotifyLink): bool {
     if (
     strlen($albumName) < 255 &&
     strlen($artistName) < 255 &&
@@ -120,7 +120,8 @@ function validateNewAlbumData(string $albumName, string $artistName, int $yearOf
     $yearOfRelease < 2022 &&
     strlen($albumArtworkURL) < 255 &&
     $rating < 11 &&
-    $rating > 0
+    $rating > 0 &&
+    strlen($spotifyLink) < 255
     ) {
         return true;
     } else {

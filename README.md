@@ -9,7 +9,7 @@ Album data is stored in a MySQL database, and displays the album name, artist na
 
 ## Live Project
 
-***Insert link here***
+https://2022-lukeg.dev.io-academy.uk/collection/
 
 ## Getting Started
 

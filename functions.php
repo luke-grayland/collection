@@ -48,7 +48,7 @@ function createAlbumMarkup(array $results): string {
             && strlen($result['artist_name']) < 50)
             {
                 $result = "<div class='albumBox'>
-                <a href='$result[spotify_link]'><img src='$result[cover]' alt='album cover' class='albumArt'></a>
+                <a href='$result[spotify_link]' target='_blank'><img src='$result[cover]' alt='album cover' class='albumArt'></a>
                 <h2>$result[album_name]</h2>
                 <h3>$result[artist_name]</h3>
                 <p>Year of Release: $result[year]</p>

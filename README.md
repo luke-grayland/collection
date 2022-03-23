@@ -14,31 +14,27 @@ Album data is stored in a MySQL database, and displays the album name, artist na
 ## Getting Started
 
 ### Dependencies
-
-- PHP version 7.4+, 
-- MySQL version 5.7 + 
-- Composer version 1+
-- PHPUnit version 6.5+
+ * PHP version 7.0.0+, 
+ * MySQL version 5.7 + 
+ * Composer version 1+
+ * PHPUnit version 6.5+
+ * SASS version 1.49+
 
 ### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
+Clone this repo:
 ```
-code blocks for commands
+git@github.com:luke-grayland/collection.git
 ```
 
-## Help
+Navigate into the newly created repo:
+```
+cd collection
+```
+From the root of the project run:
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+Install the database ```/luke-collection.sql``` into a db named ```luke-collection```
+
+The application will now be available wherever you access your PHP projects!
 
 ## Authors
 
